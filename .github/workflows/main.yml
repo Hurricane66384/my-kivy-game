@@ -33,9 +33,13 @@ jobs:
         pkg-config zlib1g-dev \
         libncurses5-dev libncursesw5-dev \
         libtinfo-dev cmake libffi-dev \
-        libssl-dev
+        libssl-dev android-sdk cmdline-tools
 
-         yes | sdkmanager --licenses
+        export ANDROID_HOME=/usr/lib/android-sdk
+        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+        export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+        yes | sdkmanager --licenses
          
         sdkmanager "platform-tools"
         sdkmanager "platforms;android-33"
