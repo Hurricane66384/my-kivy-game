@@ -35,6 +35,8 @@ jobs:
         libtinfo-dev cmake libffi-dev \
         libssl-dev 
 
+        yes | sdkmanager --licenses
+
     - name: 初始化 Buildozer
       run: |
         buildozer init
