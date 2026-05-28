@@ -26,6 +26,7 @@ jobs:
     - name: 安装系统依赖
       run: |
         sudo apt update
+
         sudo apt install -y \
         git zip unzip openjdk-17-jdk \
         python3-pip autoconf libtool \
@@ -33,6 +34,12 @@ jobs:
         libncurses5-dev libncursesw5-dev \
         libtinfo-dev cmake libffi-dev \
         libssl-dev
+
+         yes | sdkmanager --licenses
+         
+        sdkmanager "platform-tools"
+        sdkmanager "platforms;android-33"
+        sdkmanager "build-tools;33.0.0"
 
     - name: 初始化 Buildozer
       run: |
